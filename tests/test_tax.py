@@ -13,7 +13,7 @@ commands = python -c "import sys; assert sys.executable == %r, '%%s != %s' %% sy
 """ % (
         sys.executable, sys.executable
     ))
-    result = testdir.run('tax')
+    result = testdir.run('tax', '-e', 'foobar')
     result.stdout.fnmatch_lines([
         "foobar create: *",
         "foobar installed: *",
