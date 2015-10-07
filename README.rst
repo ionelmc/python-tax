@@ -85,6 +85,15 @@ Installation
 
     pip install tax
 
+Usage
+=====
+
+Instead of ``tox`` just run::
+
+    tax
+
+**Warning: all virtualenv creation is skipped. Good luck.**
+
 Documentation
 =============
 
