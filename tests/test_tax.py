@@ -1,3 +1,4 @@
+import os
 import sys
 
 pytest_plugins = 'pytester',
@@ -11,8 +12,8 @@ skipsdist = true
 [testenv]
 commands =
     python -c "import sys; print('sys.executable=%r' % sys.executable)"
-    python -c "import sys; sys.stdout.write('OK\n') if {0!r}.startswith(sys.executable) or sys.executable.startswith({0!r}) else sys.stdout.write('BAD\n')"
-""".format(sys.executable))
+    python -c "import sys, os; sys.stdout.write('OK\n') if {0!r} == os.path.dirname(sys.executable) else sys.stdout.write('BAD\n')"
+""".format(os.path.dirname(sys.executable)))
 
     result = testdir.run('tax', '-e', 'foobar')
     result.stdout.fnmatch_lines([
