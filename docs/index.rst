@@ -1,7 +1,6 @@
-Welcome to Tax's documentation!
-=================================
-
-Contents:
+========
+Contents
+========
 
 .. toctree::
    :maxdepth: 2

@@ -1,9 +1,13 @@
 [paths]
-source = src
+source =
+   src/tax
+   */site-packages/tax
 
 [run]
-branch = True
-source = src
+branch = true
+source =
+    tax
+    tests
 parallel = true
 
 [report]

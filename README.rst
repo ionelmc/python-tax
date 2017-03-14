@@ -1,6 +1,8 @@
-===
-Tax
-===
+========
+Overview
+========
+
+.. start-badges
 
 .. list-table::
     :stub-columns: 1
@@ -12,7 +14,8 @@ Tax
         | |coveralls| |codecov|
         | |landscape| |scrutinizer| |codacy| |codeclimate|
     * - package
-      - |version| |downloads| |wheel| |supported-versions| |supported-implementations|
+      - | |version| |wheel| |supported-versions| |supported-implementations|
+        | |commits-since|
 
 .. |docs| image:: https://readthedocs.org/projects/python-tax/badge/?style=flat
     :target: https://readthedocs.org/projects/python-tax
@@ -42,39 +45,43 @@ Tax
     :target: https://landscape.io/github/ionelmc/python-tax/master
     :alt: Code Quality Status
 
-.. |codacy| image:: https://img.shields.io/codacy/REPLACE_WITH_PROJECT_ID.svg?style=flat
+.. |codacy| image:: https://img.shields.io/codacy/REPLACE_WITH_PROJECT_ID.svg
     :target: https://www.codacy.com/app/ionelmc/python-tax
     :alt: Codacy Code Quality Status
 
 .. |codeclimate| image:: https://codeclimate.com/github/ionelmc/python-tax/badges/gpa.svg
    :target: https://codeclimate.com/github/ionelmc/python-tax
    :alt: CodeClimate Quality Status
-.. |version| image:: https://img.shields.io/pypi/v/tax.svg?style=flat
+
+.. |version| image:: https://img.shields.io/pypi/v/tax.svg
     :alt: PyPI Package latest release
     :target: https://pypi.python.org/pypi/tax
 
-.. |downloads| image:: https://img.shields.io/pypi/dm/tax.svg?style=flat
-    :alt: PyPI Package monthly downloads
-    :target: https://pypi.python.org/pypi/tax
+.. |commits-since| image:: https://img.shields.io/github/commits-since/ionelmc/python-tax/v0.1.0.svg
+    :alt: Commits since latest release
+    :target: https://github.com/ionelmc/python-tax/compare/v0.1.0...master
 
-.. |wheel| image:: https://img.shields.io/pypi/wheel/tax.svg?style=flat
+.. |wheel| image:: https://img.shields.io/pypi/wheel/tax.svg
     :alt: PyPI Wheel
     :target: https://pypi.python.org/pypi/tax
 
-.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/tax.svg?style=flat
+.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/tax.svg
     :alt: Supported versions
     :target: https://pypi.python.org/pypi/tax
 
-.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/tax.svg?style=flat
+.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/tax.svg
     :alt: Supported implementations
     :target: https://pypi.python.org/pypi/tax
 
-.. |scrutinizer| image:: https://img.shields.io/scrutinizer/g/ionelmc/python-tax/master.svg?style=flat
+.. |scrutinizer| image:: https://img.shields.io/scrutinizer/g/ionelmc/python-tax/master.svg
     :alt: Scrutinizer Status
     :target: https://scrutinizer-ci.com/g/ionelmc/python-tax/
 
-A taxy Tox to tax your current site-packages. This is a variant of Tox that doesn't use virtualenvs at all - just installs everything in
-the current environment. Use at your own peril.
+
+.. end-badges
+
+A taxy Tox to tax your current site-packages. This is a variant of Tox that doesn't use virtualenvs at all - just
+installs everything in the current environment. Use at your own peril.
 
 * Free software: BSD license
 
@@ -85,19 +92,10 @@ Installation
 
     pip install tax
 
-Usage
-=====
-
-Instead of ``tox`` just run::
-
-    tax
-
-**Warning: all virtualenv creation is skipped. Good luck.**
-
 Documentation
 =============
 
-https://python-tax.readthedocs.org/
+https://python-tax.readthedocs.io/
 
 Development
 ===========
@@ -105,3 +103,20 @@ Development
 To run the all tests run::
 
     tox
+
+Note, to combine the coverage data from all the tox environments run:
+
+.. list-table::
+    :widths: 10 90
+    :stub-columns: 1
+
+    - - Windows
+      - ::
+
+            set PYTEST_ADDOPTS=--cov-append
+            tox
+
+    - - Other
+      - ::
+
+            PYTEST_ADDOPTS=--cov-append tox

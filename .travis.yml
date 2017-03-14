@@ -1,30 +1,105 @@
 language: python
-python: '3.5'
 sudo: false
+cache: pip
 env:
   global:
-    LD_PRELOAD=/lib/x86_64-linux-gnu/libSegFault.so
+    - LD_PRELOAD=/lib/x86_64-linux-gnu/libSegFault.so
+    - SEGFAULT_SIGNALS=all
   matrix:
     - TOXENV=check
-
-    - TOXENV=2.6-cover,coveralls,codecov
-    - TOXENV=2.6-nocov
-
-    - TOXENV=2.7-cover,coveralls,codecov
-    - TOXENV=2.7-nocov
-
-    - TOXENV=3.3-cover,coveralls,codecov
-    - TOXENV=3.3-nocov
-
-    - TOXENV=3.4-cover,coveralls,codecov
-    - TOXENV=3.4-nocov
-
-    - TOXENV=3.5-cover,coveralls,codecov
-    - TOXENV=3.5-nocov
-
-    - TOXENV=pypy-cover,coveralls,codecov
-    - TOXENV=pypy-nocov
-
+    - TOXENV=docs
+matrix:
+  include:
+    - python: 2.7
+      env:
+        - TOXENV=py27-tox22,report,coveralls,codecov
+    - python: 2.7
+      env:
+        - TOXENV=py27-tox23,report,coveralls,codecov
+    - python: 2.7
+      env:
+        - TOXENV=py27-tox24,report,coveralls,codecov
+    - python: 2.7
+      env:
+        - TOXENV=py27-tox25,report,coveralls,codecov
+    - python: 2.7
+      env:
+        - TOXENV=py27-tox26,report,coveralls,codecov
+    - python: 3.3
+      env:
+        - TOXENV=py33-tox22,report,coveralls,codecov
+    - python: 3.3
+      env:
+        - TOXENV=py33-tox23,report,coveralls,codecov
+    - python: 3.3
+      env:
+        - TOXENV=py33-tox24,report,coveralls,codecov
+    - python: 3.3
+      env:
+        - TOXENV=py33-tox25,report,coveralls,codecov
+    - python: 3.3
+      env:
+        - TOXENV=py33-tox26,report,coveralls,codecov
+    - python: 3.4
+      env:
+        - TOXENV=py34-tox22,report,coveralls,codecov
+    - python: 3.4
+      env:
+        - TOXENV=py34-tox23,report,coveralls,codecov
+    - python: 3.4
+      env:
+        - TOXENV=py34-tox24,report,coveralls,codecov
+    - python: 3.4
+      env:
+        - TOXENV=py34-tox25,report,coveralls,codecov
+    - python: 3.4
+      env:
+        - TOXENV=py34-tox26,report,coveralls,codecov
+    - python: 3.5
+      env:
+        - TOXENV=py35-tox22,report,coveralls,codecov
+    - python: 3.5
+      env:
+        - TOXENV=py35-tox23,report,coveralls,codecov
+    - python: 3.5
+      env:
+        - TOXENV=py35-tox24,report,coveralls,codecov
+    - python: 3.5
+      env:
+        - TOXENV=py35-tox25,report,coveralls,codecov
+    - python: 3.5
+      env:
+        - TOXENV=py35-tox26,report,coveralls,codecov
+    - python: 3.6
+      env:
+        - TOXENV=py36-tox22,report,coveralls,codecov
+    - python: 3.6
+      env:
+        - TOXENV=py36-tox23,report,coveralls,codecov
+    - python: 3.6
+      env:
+        - TOXENV=py36-tox24,report,coveralls,codecov
+    - python: 3.6
+      env:
+        - TOXENV=py36-tox25,report,coveralls,codecov
+    - python: 3.6
+      env:
+        - TOXENV=py36-tox26,report,coveralls,codecov
+    - python: pypy
+      env:
+        - TOXENV=pypy-tox22,report,coveralls,codecov
+    - python: pypy
+      env:
+        - TOXENV=pypy-tox23,report,coveralls,codecov
+    - python: pypy
+      env:
+        - TOXENV=pypy-tox24,report,coveralls,codecov
+    - python: pypy
+      env:
+        - TOXENV=pypy-tox25,report,coveralls,codecov
+    - python: pypy
+      env:
+        - TOXENV=pypy-tox26,report,coveralls,codecov
 before_install:
   - python --version
   - uname -a
@@ -44,4 +119,3 @@ notifications:
   email:
     on_success: never
     on_failure: always
-
