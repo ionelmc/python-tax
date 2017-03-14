@@ -1,3 +1,5 @@
+import sys
+
 from tox.session import Session
 from tox.session import VirtualEnv
 from tox.session import prepare
@@ -17,6 +19,9 @@ class TaxSession(Session):
 class FakeVirtualEnv(VirtualEnv):
     def create(self, action=None):
         self.just_created = True
+
+    def update(self, action):
+        action.info("reusing", sys.prefix)
 
     def _pcall(self, args, cwd, venv=True, testcommand=False,
                action=None, redirect=True, ignore_ret=False):

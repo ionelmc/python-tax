@@ -15,9 +15,8 @@ commands =
     python -c "import sys, os; sys.stdout.write('OK\n') if {0!r} == os.path.dirname(os.path.normcase(sys.executable)) else sys.stdout.write('BAD\n')"
 """.format(os.path.dirname(os.path.normcase(sys.executable))))
 
-    result = testdir.run('tax', '-e', 'foobar')
+    result = testdir.run('tax', '-v', '-e', 'foobar')
     result.stdout.fnmatch_lines([
-        "foobar create: *",
         "foobar installed: *",
         "foobar runtests: PYTHONHASHSEED=*",
         "foobar runtests: commands[[]0[]] | *",
