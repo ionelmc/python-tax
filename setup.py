@@ -26,7 +26,8 @@ setup(
     name='tax',
     version='0.1.0',
     license='BSD',
-    description="A taxy Tox to tax your current site-packages. This is a variant of Tox that doesn't use virtualenvs at all - just installs everything in the current environment. Use at your own peril.",
+    description="A taxy Tox to tax your current site-packages. This is a variant of Tox that doesn't use virtualenvs "
+                "at all - just installs everything in the current environment. Use at your own peril.",
     long_description='%s\n%s' % (
         re.compile('^.. start-badges.*^.. end-badges', re.M | re.S).sub('', read('README.rst')),
         re.sub(':[a-z]+:`~?(.*?)`', r'``\1``', read('CHANGELOG.rst'))
