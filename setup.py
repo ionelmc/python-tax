@@ -24,7 +24,7 @@ def read(*names, **kwargs):
 
 setup(
     name='tax',
-    version='0.1.0',
+    version='1.0.0',
     license='BSD',
     description="A taxy Tox to tax your current site-packages. This is a variant of Tox that doesn't use virtualenvs "
                 "at all - just installs everything in the current environment. Use at your own peril.",

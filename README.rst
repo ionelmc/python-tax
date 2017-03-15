@@ -57,9 +57,9 @@ Overview
     :alt: PyPI Package latest release
     :target: https://pypi.python.org/pypi/tax
 
-.. |commits-since| image:: https://img.shields.io/github/commits-since/ionelmc/python-tax/v0.1.0.svg
+.. |commits-since| image:: https://img.shields.io/github/commits-since/ionelmc/python-tax/v1.0.0.svg
     :alt: Commits since latest release
-    :target: https://github.com/ionelmc/python-tax/compare/v0.1.0...master
+    :target: https://github.com/ionelmc/python-tax/compare/v1.0.0...master
 
 .. |wheel| image:: https://img.shields.io/pypi/wheel/tax.svg
     :alt: PyPI Wheel
