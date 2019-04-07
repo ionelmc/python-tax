@@ -18,7 +18,7 @@ commands =
     result = testdir.run('tax', '-v', '-e', 'foobar')
     result.stdout.fnmatch_lines([
         "foobar installed: *",
-        "foobar runtests: PYTHONHASHSEED=*",
+        "foobar *: PYTHONHASHSEED=*",
         "foobar runtests: commands[[]0[]] | *",
         "sys.executable=*",
         "foobar runtests: commands[[]1[]] | *",

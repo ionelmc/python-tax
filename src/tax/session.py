@@ -24,11 +24,17 @@ class FakeVirtualEnv(VirtualEnv):
         action.info("reusing", sys.prefix)
 
     def _pcall(self, args, cwd, venv=True, testcommand=False,
-               action=None, redirect=True, ignore_ret=False):
+               action=None, redirect=True, ignore_ret=False,
+
+               is_test_command=False,
+               returnout=False):
         cwd.ensure(dir=1)
         args[0] = self.getcommandpath(args[0], venv, cwd)
-        env = self._getenv(testcommand=testcommand)
-        return action.popen(args, cwd=cwd, env=env,
+        if hasattr(self, '_get_os_environ'):
+            environ = self._get_os_environ(is_test_command=is_test_command)
+        else:
+            environ = self._getenv(testcommand=testcommand)
+        return action.popen(args, cwd=cwd, env=environ,
                             redirect=redirect, ignore_ret=ignore_ret)
 
     def is_allowed_external(self, _):
